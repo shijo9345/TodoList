@@ -43,7 +43,7 @@ const updateTasksList = () => {
 
   if(tasks.length==0){
       const listItem = document.createElement("li");
-      listItem.innerHTML = `<img class="empty-image" src="./background.png">`;
+      listItem.innerHTML = `<img class="empty-image" src="./assets/images/background.png">`;
       taskList.appendChild(listItem);
       return;
   }
