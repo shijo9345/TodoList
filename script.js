@@ -40,6 +40,7 @@ const addTask=()=>{
 const updateTasksList = () => {
   const taskList = document.getElementById("task-list")
   taskList.innerHTML = ''
+  
 
   if(tasks.length==0){
       const listItem = document.createElement("li");
