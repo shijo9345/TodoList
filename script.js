@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   if(StoredTasks){
       StoredTasks.forEach((items)=>{
           tasks.push(items)
-          console.log(items)
+        
       })
   }
   updateTasksList();
@@ -57,7 +57,7 @@ const updateTasksList = () => {
          <div class="taskItem">
           <div class="task ${task.completed ? 'completed' : ''}">
           <input type="checkbox" class="checkBox" ${task.completed ? "checked" : ""}/>
-          <p  class= ${task.completed ? "underline" : ""}>${task.text}</p>
+          <p onclick= toggleTaskComplete(${index})  class= ${task.completed ? "underline" : ""}>${task.text}</p>
       </div>
       <div class="icons">
           <img src="./assets/icons/edit.png" onclick=editTask(${index})>
@@ -78,10 +78,10 @@ const completedTask = () =>{
   const completedTaskNumber =document.getElementById("numbers");
   completedTaskNumber.innerText = `${ completed+' / '+tasks.length}`
   const progress=document.getElementById("progress");
-  const percentage = (completed/tasks.length)*100+"%";
-  progress.style.width = percentage;
+  const percentage = (completed/tasks.length)*100;
+  progress.style.width = percentage+"%";
 
-  if(tasks.length !=0 && completed == tasks.length){
+  if(percentage==100 && completed == tasks.length){
       animateS()
   }
   saveTask();
@@ -111,7 +111,7 @@ const editTask = (index) =>{
 
 function toggleTaskComplete(index){
   tasks[index].completed = !tasks[index].completed;
-  console.log(tasks)
+
   updateTasksList();
   completedTask();
   saveTask();
