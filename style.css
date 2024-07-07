@@ -97,12 +97,19 @@ button{
     outline: none;
 }
 .empty-image{
-     width: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+ 
+  height: 200px;
 }
+
+li{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
 @media only screen and (max-width:600px){
     .container{
         max-width: 350px;
